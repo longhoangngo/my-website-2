@@ -22,6 +22,24 @@
       background:#f7f4f1;
       color:#333;
     }
+      .arrow{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      font-size:60px;
+      color:white;
+      cursor:pointer;
+      user-select:none;
+      padding:20px;
+    }
+
+    .left-arrow{
+      left:20px;
+    }
+
+    .right-arrow{
+      right:20px;
+    }
     #image-popup{
     display:none;
     position:fixed;
@@ -211,6 +229,24 @@
 
       </div>
 
+      <!-- Album 5 -->
+      <div class="album" onclick="openAlbum('album5')">
+
+        <img src="BV/IMG_5205.jpeg">
+
+        <h3>Ba Vì</h3>
+
+      </div>
+
+      <!-- Album 6 -->
+      <div class="album" onclick="openAlbum('album6')">
+
+        <img src="SP/IMG_8138.jpeg">
+
+        <h3>Sapa</h3>
+
+      </div>
+
     </div>
 
   </section>
@@ -336,51 +372,140 @@
     </div>
     </div>
 
-  <!-- <footer>
-    Made with love ♡
-  </footer> -->
+<!-- Album 5 Page -->
 
+    <div class="album-page" id="album5">
+
+    <span class="close" onclick="closeAlbum('album5')">×</span>
+
+    <h2>Ba Vì</h2>
+
+    <div class="album-images">
+
+      <img src= "BV/IMG_5009.jpeg" onclick="openImage(this.src)">
+      <img src="BV/IMG_5053.jpeg" onclick="openImage(this.src)">
+      <img src="BV/IMG_5077.jpeg" onclick="openImage(this.src)">
+      <img src="BV/IMG_5078.jpeg" onclick="openImage(this.src)">
+      <img src="BV/IMG_5079.jpeg" onclick="openImage(this.src)">
+      <img src="BV/IMG_5136.jpeg" onclick="openImage(this.src)">
+      <img src="BV/IMG_5195.jpeg" onclick="openImage(this.src)">
+      <img src="BV/IMG_5208.jpeg" onclick="openImage(this.src)">
+      <img src="BV/IMG_8318.jpeg" onclick="openImage(this.src)">
+    </div>
+    </div>
+    
+    <div class="album-page" id="album6">
+
+    <span class="close" onclick="closeAlbum('album6')">×</span>
+
+    <h2>Sapa</h2>
+
+    <div class="album-images">
+    <img src="SP/IMG_7948.jpeg" onclick="openImage(this.src)">
+    <img src="SP/IMG_7952.jpeg" onclick="openImage(this.src)">
+    <img src="SP/IMG_7953.jpeg" onclick="openImage(this.src)">
+    <img src="SP/IMG_7982.jpeg" onclick="openImage(this.src)">
+    <img src="SP/IMG_8020.jpeg" onclick="openImage(this.src)">
+    <img src="SP/IMG_8021.jpeg" onclick="openImage(this.src)">
+    <img src="SP/IMG_8049.jpeg" onclick="openImage(this.src)">
+    <img src="SP/IMG_8050.jpeg" onclick="openImage(this.src)">
+    <img src="SP/IMG_8057.jpeg" onclick="openImage(this.src)">
+    <img src="SP/IMG_8059.jpeg" onclick="openImage(this.src)">
+    <img src="SP/IMG_8091.jpeg" onclick="openImage(this.src)">
+    <img src="SP/IMG_8124.jpeg" onclick="openImage(this.src)">
+    <img src="SP/IMG_8127.jpeg" onclick="openImage(this.src)">
+    <img src="SP/IMG_8197.jpeg" onclick="openImage(this.src)">
+    <img src="SP/IMG_8252.jpeg" onclick="openImage(this.src)">
+    <img src="SP/IMG_8260.jpeg" onclick="openImage(this.src)">
+    </div>
+    </div>
 
   <script>
 
-    function openAlbum(id){
+  function openAlbum(id){
 
-      document.getElementById(id).style.display = "block";
+    document.getElementById(id).style.display = "block";
 
+  }
+
+  function closeAlbum(id){
+
+    document.getElementById(id).style.display = "none";
+
+  }
+
+
+  // IMAGE SLIDER
+
+  let currentImages = [];
+  let currentIndex = 0;
+
+
+  function openImage(src){
+
+    const popup = document.getElementById("image-popup");
+    const popupImg = document.getElementById("popup-img");
+
+    popup.style.display = "flex";
+
+    // get all images from opened album
+    const visibleAlbum = document.querySelector('.album-page[style*="block"]');
+
+    currentImages = Array.from(
+      visibleAlbum.querySelectorAll('.album-images img')
+    );
+
+    currentIndex = currentImages.findIndex(
+      img => img.src === src
+    );
+
+    popupImg.src = src;
+
+  }
+
+
+  function closeImage(){
+
+    document.getElementById("image-popup").style.display = "none";
+
+  }
+
+
+  function nextImage(){
+
+    currentIndex++;
+
+    if(currentIndex >= currentImages.length){
+      currentIndex = 0;
     }
 
-    function closeAlbum(id){
+    document.getElementById("popup-img").src =
+      currentImages[currentIndex].src;
 
-      document.getElementById(id).style.display = "none";
+  }
 
+
+  function prevImage(){
+
+    currentIndex--;
+
+    if(currentIndex < 0){
+      currentIndex = currentImages.length - 1;
     }
 
-    // OPEN IMAGE FULLSCREEN
+    document.getElementById("popup-img").src =
+      currentImages[currentIndex].src;
 
-    function openImage(src){
+  }
 
-        document.getElementById("popup-img").src = src;
-
-        document.getElementById("image-popup").style.display = "flex";
-
-    } 
-
-
-    // CLOSE IMAGE
-
-    function closeImage(){
-
-        document.getElementById("image-popup").style.display = "none";
-
-    }
 
   </script>
 <div id="image-popup">
 
   <span class="popup-close" onclick="closeImage()">×</span>
-
+  <span class="arrow left-arrow" onclick="prevImage()">❮</span>
   <img id="popup-img">
-
+  <span class="arrow right-arrow" onclick="nextImage()">❯</span>
 </div>
 </body>
 
