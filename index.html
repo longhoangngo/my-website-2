@@ -41,13 +41,19 @@
       right:20px;
     }
     #image-popup{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,0.9);
-    justify-content:center;
-    align-items:center;
-    z-index:2000;
+      display:none;
+      position:fixed;
+      inset:0;
+
+      background:rgba(0,0,0,0.45);
+
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+
+      justify-content:center;
+      align-items:center;
+
+      z-index:2000;
     }
 
     #popup-img{
@@ -55,12 +61,12 @@
     max-height:90%;
     border-radius:15px;
     }
-  .year-title{
-    font-size:2rem;
-    margin-bottom:60px;
-    text-align:center;
-    font-family:'Poppins', serif;
-  }
+    .year-title{
+      font-size:2rem;
+      margin-bottom:60px;
+      text-align:center;
+      font-family:'Poppins', serif;
+    }
     .popup-close{
     position:absolute;
     top:20px;
@@ -69,7 +75,7 @@
     font-size:50px;
     cursor:pointer;
     }
-    header{
+    /* header{
       height:70vh;
       display:flex;
       justify-content:center;
@@ -88,8 +94,129 @@
 
     header p{
       font-size:1.2rem;
+    } */
+    header{
+      /* height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      background:
+        linear-gradient(
+          rgba(255,245,247,0.15),
+          rgba(255,245,247,0.15)
+        ),
+        url('IMG_5406.JPEG');
+
+      background-size:cover;
+      background-position:center 35%;
+
+      position:relative; */
+      position:relative;
+
+      height:100vh;
+      width:100vw;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+ 
+      overflow:hidden;
+    }
+    /* VIDEO */
+
+    #bg-video{
+
+      position:absolute;
+
+      top:50%;
+      left:50%;
+
+      min-width:100%;
+      min-height:100%;
+
+      width:auto;
+      height:auto;
+
+      transform:translate(-50%, -50%);
+
+      object-fit:cover;
+
+      z-index:-2;
     }
 
+    /* OVERLAY */
+
+    .video-overlay{
+
+      position:absolute;
+      inset:0;
+
+      background:rgba(255,245,247,0.15);
+
+      backdrop-filter:blur(1px);
+
+      z-index:-1;
+    }
+
+    .hero-content{
+
+      /* backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
+
+      background:rgba(255,255,255,0.15);
+
+      border:1px solid rgba(255,255,255,0.2);
+
+      padding:60px;
+
+      border-radius:35px;
+
+      box-shadow:
+        0 10px 40px rgba(0,0,0,0.08); */
+      text-align:center;
+
+      backdrop-filter:blur(16px);
+      -webkit-backdrop-filter:blur(16px);
+
+      background:rgba(255,255,255,0.12);
+
+      border:1px solid rgba(255,255,255,0.18);
+
+      padding:60px;
+
+      border-radius:35px;
+
+      box-shadow:
+        0 10px 40px rgba(0,0,0,0.1);
+
+    }
+    header h1{
+      font-family:'Playfair Display', serif;
+      font-size:6rem;
+      margin-bottom:15px;
+    }
+    header p{
+      font-size:1.3rem;
+      margin-bottom:35px;
+    }
+    button{
+      padding:16px 40px;
+      border:none;
+      border-radius:999px;
+      font-size:1rem;
+      font-family:'Poppins', sans-serif;
+      cursor:pointer;
+      background:rgba(255,255,255,0.3);
+      backdrop-filter:blur(10px);
+      color:#333;
+      transition:0.3s;
+    }
+
+    button:hover{
+      transform:translateY(-3px);
+      background:rgba(255,255,255,0.5);
+
+    }
     section{
       padding:60px 10%;
     }
@@ -103,6 +230,32 @@
     .album{
       cursor:pointer;
       text-align:center;
+      background:rgba(255,255,255,0.18);
+
+      border:1px solid rgba(255,255,255,0.25);
+
+      backdrop-filter:blur(14px);
+      -webkit-backdrop-filter:blur(14px);
+
+      border-radius:30px;
+
+      padding:20px;
+
+      box-shadow:
+        0 8px 32px rgba(0,0,0,0.08);
+
+      transition:0.4s;
+    }
+
+    .album:hover{
+
+      transform:translateY(-10px);
+
+      background:rgba(255,255,255,0.25);
+
+      box-shadow:
+        0 12px 40px rgba(0,0,0,0.12);
+
     }
 
     .album img{
@@ -111,7 +264,8 @@
       object-fit:cover;
       border-radius:20px;
       transition:0.3s;
-      box-shadow:0 5px 15px rgba(0,0,0,0.1);
+      /* box-shadow:0 5px 15px rgba(0,0,0,0.1); */
+      box-shadow:0 10px 35px rgba(0,0,0,0.12);
     }
 
     .album img:hover{
@@ -140,16 +294,23 @@
       font-size:2.5rem;
     }
 
-    .album-images{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:20px;
+     .album-images{
+      display:flex;
+      flex-direction:column;
+      gap:30px;
+      align-items:center;
     }
 
     .album-images img{
-      width:100%;
+      width:60%;
       border-radius:20px;
-      object-fit:cover;
+      cursor:pointer;
+      transition:0.3s;
+      box-shadow:0 10px 35px rgba(0,0,0,0.12);
+    }
+
+    .album-images img:hover{
+      transform:scale(1.02);
     }
 
     .close{
@@ -166,28 +327,125 @@
       background:#222;
       color:white;
     }
+    .petals{
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+  z-index:-1;
+}
 
+.petals span{
+  position:absolute;
+  top:-10%;
+  width:18px;
+  height:18px;
+  background:rgba(255,182,193,0.45);
+  border-radius:70% 30% 70% 30%;
+  animation:fall linear infinite;
+  filter:blur(0.5px);
+}
+
+
+/* DIFFERENT PETALS */
+
+.petals span:nth-child(1){
+  left:10%;
+  animation-duration:12s;
+  animation-delay:0s;
+}
+
+.petals span:nth-child(2){
+  left:20%;
+  animation-duration:18s;
+  animation-delay:2s;
+}
+
+.petals span:nth-child(3){
+  left:35%;
+  animation-duration:14s;
+  animation-delay:1s;
+}
+
+.petals span:nth-child(4){
+  left:50%;
+  animation-duration:20s;
+  animation-delay:4s;
+}
+
+.petals span:nth-child(5){
+  left:65%;
+  animation-duration:13s;
+  animation-delay:3s;
+}
+
+.petals span:nth-child(6){
+  left:80%;
+  animation-duration:16s;
+  animation-delay:1s;
+}
+
+.petals span:nth-child(7){
+  left:90%;
+  animation-duration:19s;
+  animation-delay:5s;
+}
+
+
+@keyframes fall{
+
+  0%{
+    transform:
+      translateY(-10vh)
+      rotate(0deg)
+      translateX(0);
+    opacity:0;
+  }
+
+  10%{
+    opacity:1;
+  }
+
+  100%{
+    transform:
+      translateY(120vh)
+      rotate(360deg)
+      translateX(80px);
+    opacity:0;
+  }
+
+}
     @media(max-width:768px){
 
       header h1{
         font-size:2.5rem;
       }
-
+      .album-images img{
+        width:100%;
+      }
     }
 
   </style>
 </head>
 
 <body>
-
-  <header>
-    <div>
+  <div class="petals"></div>
+  <header id="home">
+    <video autoplay muted loop playsinline id="bg-video">
+    <source src="2024-12-31_194917692.MP4" type="video/mp4">
+    </video>
+    <!-- DARK OVERLAY -->
+    <div class="video-overlay"></div>
+    <div class ="hero-content">
       <h1>Long & Phương</h1>
       <p>Our favorite memories together</p>
+      <button onclick="exploreSite()">
+        Explore
+      </button>
     </div>
   </header>
 
-
+  <main id="main-content">
   <section>
     <h2 class="year-title">2025-2026 Trips</h2>
     <div class="gallery">
@@ -250,7 +508,7 @@
     </div>
 
   </section>
-
+  </main>
 
   <!-- Album 1 Page -->
 
@@ -261,13 +519,13 @@
     <h2>Đà Nẵng & Hội An</h2>
 
     <div class="album-images">
-      <img src="DN/IMG_0724.jpeg" onclick="openImage(this.src)">
-      <img src="DN/IMG_1167.jpeg" onclick="openImage(this.src)">
-      <img src="DN/IMG_0996.jpeg" onclick="openImage(this.src)">
-      <img src="DN/IMG_0913.jpeg" onclick="openImage(this.src)">
-      <img src="DN/IMG_0909.jpeg" onclick="openImage(this.src)">
-      <img src="DN/IMG_0777.jpeg" onclick="openImage(this.src)">
-      <img src="DN/IMG_0763.jpeg" onclick="openImage(this.src)">
+      <img src="DN/IMG_0724.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="DN/IMG_1167.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="DN/IMG_0996.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="DN/IMG_0913.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="DN/IMG_0909.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="DN/IMG_0777.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="DN/IMG_0763.jpeg" loading="lazy" onclick="openImage(this.src)">
 
 
     </div>
@@ -285,17 +543,17 @@
 
     <div class="album-images">
 
-      <img src="DL/IMG_9869.jpeg" onclick="openImage(this.src)">
-      <img src="DL/IMG_9886.jpeg" onclick="openImage(this.src)">
-      <img src="DL/IMG_9887.jpeg" onclick="openImage(this.src)">
-      <img src="DL/IMG_9888.jpeg" onclick="openImage(this.src)">
-      <img src="DL/IMG_9893.jpeg" onclick="openImage(this.src)">
-      <img src="DL/IMG_9911.jpeg" onclick="openImage(this.src)">
-      <img src="DL/IMG_9916.jpeg" onclick="openImage(this.src)">
-      <img src="DL/IMG_9917.jpeg" onclick="openImage(this.src)">
-      <img src="DL/IMG_9918.jpeg" onclick="openImage(this.src)">
-      <img src="DL/IMG_9938.jpeg" onclick="openImage(this.src)">
-      <img src="DL/IMG_9940.jpeg" onclick="openImage(this.src)">
+      <img src="DL/IMG_9869.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="DL/IMG_9886.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="DL/IMG_9887.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="DL/IMG_9888.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="DL/IMG_9893.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="DL/IMG_9911.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="DL/IMG_9916.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="DL/IMG_9917.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="DL/IMG_9918.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="DL/IMG_9938.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="DL/IMG_9940.jpeg" loading="lazy" onclick="openImage(this.src)">
 
     </div>
 
@@ -311,29 +569,29 @@
 
     <div class="album-images">
 
-      <img src="SG/C4A92B4A-2023-4451-A95E-B2EA969801ED.jpeg" onclick="openImage(this.src)">
-      <img src="SG/D94C7C8E-4F63-407E-850A-0D020E43EA7C.jpeg" onclick="openImage(this.src)">
-      <img src="SG/IMG_6935.jpeg" onclick="openImage(this.src)">
-      <img src="SG/IMG_6937.jpeg" onclick="openImage(this.src)">
-      <img src="SG/IMG_7005.jpeg" onclick="openImage(this.src)">
-      <img src="SG/IMG_7033.jpeg" onclick="openImage(this.src)">
-      <img src="SG/IMG_7049.jpeg" onclick="openImage(this.src)">
-      <img src="SG/IMG_7050.jpeg" onclick="openImage(this.src)">
-      <img src="SG/IMG_7054.jpeg" onclick="openImage(this.src)">
-      <img src="SG/IMG_7055.jpeg" onclick="openImage(this.src)">
-      <img src="SG/IMG_7063.jpeg" onclick="openImage(this.src)">
-      <img src="SG/IMG_7069.jpeg" onclick="openImage(this.src)">
-      <img src="SG/IMG_7149.jpeg" onclick="openImage(this.src)">
-      <img src="SG/IMG_7150.jpeg" onclick="openImage(this.src)">
-      <img src="SG/IMG_7151.jpeg" onclick="openImage(this.src)">
-      <img src="SG/IMG_7152.jpeg" onclick="openImage(this.src)">
-      <img src="SG/IMG_7153.jpeg" onclick="openImage(this.src)">
-      <img src="SG/IMG_7154.jpeg" onclick="openImage(this.src)">
-      <img src="SG/IMG_7155.jpeg" onclick="openImage(this.src)">
-      <img src="SG/IMG_7156.jpeg" onclick="openImage(this.src)">
-      <img src="SG/IMG_7157.jpeg" onclick="openImage(this.src)">
-      <img src="SG/IMG_7161.jpeg" onclick="openImage(this.src)">
-      <img src="SG/IMG_7163.jpeg" onclick="openImage(this.src)"> 
+      <img src="SG/C4A92B4A-2023-4451-A95E-B2EA969801ED.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="SG/D94C7C8E-4F63-407E-850A-0D020E43EA7C.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="SG/IMG_6935.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="SG/IMG_6937.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="SG/IMG_7005.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="SG/IMG_7033.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="SG/IMG_7049.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="SG/IMG_7050.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="SG/IMG_7054.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="SG/IMG_7055.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="SG/IMG_7063.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="SG/IMG_7069.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="SG/IMG_7149.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="SG/IMG_7150.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="SG/IMG_7151.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="SG/IMG_7152.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="SG/IMG_7153.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="SG/IMG_7154.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="SG/IMG_7155.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="SG/IMG_7156.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="SG/IMG_7157.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="SG/IMG_7161.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="SG/IMG_7163.jpeg" loading="lazy" onclick="openImage(this.src)"> 
  
     </div>
     </div>
@@ -348,27 +606,27 @@
 
     <div class="album-images">
 
-      <img src="NB/IMG_6077.jpeg" onclick="openImage(this.src)">
-      <img src="NB/IMG_6078.jpeg" onclick="openImage(this.src)">
-      <img src="NB/IMG_6081.jpeg" onclick="openImage(this.src)">
-      <img src="NB/IMG_6098.jpeg" onclick="openImage(this.src)">
-      <img src="NB/IMG_6104.jpeg" onclick="openImage(this.src)">
-      <img src="NB/IMG_6120.jpeg" onclick="openImage(this.src)">
-      <img src="NB/IMG_6121.jpeg" onclick="openImage(this.src)">
-      <img src="NB/IMG_6124.jpeg" onclick="openImage(this.src)">
-      <img src="NB/IMG_6126.jpeg" onclick="openImage(this.src)">
-      <img src="NB/IMG_6132.jpeg" onclick="openImage(this.src)">
-      <img src="NB/IMG_6135.jpeg" onclick="openImage(this.src)">
-      <img src="NB/IMG_6138.jpeg" onclick="openImage(this.src)">
-      <img src="NB/IMG_6139.jpeg" onclick="openImage(this.src)">
-      <img src="NB/IMG_6238.jpeg" onclick="openImage(this.src)">
-      <img src="NB/IMG_6409.jpeg" onclick="openImage(this.src)">
-      <img src="NB/IMG_6410.jpeg" onclick="openImage(this.src)">
-      <img src="NB/IMG_6451.jpeg" onclick="openImage(this.src)">
-      <img src="NB/IMG_6458.jpeg" onclick="openImage(this.src)">
-      <img src="NB/IMG_6463.jpeg" onclick="openImage(this.src)">
-      <img src="NB/IMG_6467.jpeg" onclick="openImage(this.src)">
-      <img src="NB/IMG_6471.jpeg" onclick="openImage(this.src)">
+      <img src="NB/IMG_6077.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="NB/IMG_6078.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="NB/IMG_6081.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="NB/IMG_6098.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="NB/IMG_6104.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="NB/IMG_6120.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="NB/IMG_6121.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="NB/IMG_6124.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="NB/IMG_6126.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="NB/IMG_6132.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="NB/IMG_6135.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="NB/IMG_6138.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="NB/IMG_6139.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="NB/IMG_6238.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="NB/IMG_6409.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="NB/IMG_6410.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="NB/IMG_6451.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="NB/IMG_6458.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="NB/IMG_6463.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="NB/IMG_6467.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="NB/IMG_6471.jpeg" loading="lazy" onclick="openImage(this.src)">
     </div>
     </div>
 
@@ -382,15 +640,15 @@
 
     <div class="album-images">
 
-      <img src= "BV/IMG_5009.jpeg" onclick="openImage(this.src)">
-      <img src="BV/IMG_5053.jpeg" onclick="openImage(this.src)">
-      <img src="BV/IMG_5077.jpeg" onclick="openImage(this.src)">
-      <img src="BV/IMG_5078.jpeg" onclick="openImage(this.src)">
-      <img src="BV/IMG_5079.jpeg" onclick="openImage(this.src)">
-      <img src="BV/IMG_5136.jpeg" onclick="openImage(this.src)">
-      <img src="BV/IMG_5195.jpeg" onclick="openImage(this.src)">
-      <img src="BV/IMG_5208.jpeg" onclick="openImage(this.src)">
-      <img src="BV/IMG_8318.jpeg" onclick="openImage(this.src)">
+      <img src= "BV/IMG_5009.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="BV/IMG_5053.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="BV/IMG_5077.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="BV/IMG_5078.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="BV/IMG_5079.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="BV/IMG_5136.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="BV/IMG_5195.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="BV/IMG_5208.jpeg" loading="lazy" onclick="openImage(this.src)">
+      <img src="BV/IMG_8318.jpeg" loading="lazy" onclick="openImage(this.src)">
     </div>
     </div>
     
@@ -401,22 +659,22 @@
     <h2>Sapa</h2>
 
     <div class="album-images">
-    <img src="SP/IMG_7948.jpeg" onclick="openImage(this.src)">
-    <img src="SP/IMG_7952.jpeg" onclick="openImage(this.src)">
-    <img src="SP/IMG_7953.jpeg" onclick="openImage(this.src)">
-    <img src="SP/IMG_7982.jpeg" onclick="openImage(this.src)">
-    <img src="SP/IMG_8020.jpeg" onclick="openImage(this.src)">
-    <img src="SP/IMG_8021.jpeg" onclick="openImage(this.src)">
-    <img src="SP/IMG_8049.jpeg" onclick="openImage(this.src)">
-    <img src="SP/IMG_8050.jpeg" onclick="openImage(this.src)">
-    <img src="SP/IMG_8057.jpeg" onclick="openImage(this.src)">
-    <img src="SP/IMG_8059.jpeg" onclick="openImage(this.src)">
-    <img src="SP/IMG_8091.jpeg" onclick="openImage(this.src)">
-    <img src="SP/IMG_8124.jpeg" onclick="openImage(this.src)">
-    <img src="SP/IMG_8127.jpeg" onclick="openImage(this.src)">
-    <img src="SP/IMG_8197.jpeg" onclick="openImage(this.src)">
-    <img src="SP/IMG_8252.jpeg" onclick="openImage(this.src)">
-    <img src="SP/IMG_8260.jpeg" onclick="openImage(this.src)">
+    <img src="SP/IMG_7948.jpeg" loading="lazy" onclick="openImage(this.src)">
+    <img src="SP/IMG_7952.jpeg" loading="lazy" onclick="openImage(this.src)">
+    <img src="SP/IMG_7953.jpeg" loading="lazy" onclick="openImage(this.src)">
+    <img src="SP/IMG_7982.jpeg" loading="lazy" onclick="openImage(this.src)">
+    <img src="SP/IMG_8020.jpeg" loading="lazy" onclick="openImage(this.src)">
+    <img src="SP/IMG_8021.jpeg" loading="lazy" onclick="openImage(this.src)">
+    <img src="SP/IMG_8049.jpeg" loading="lazy" onclick="openImage(this.src)">
+    <img src="SP/IMG_8050.jpeg" loading="lazy" onclick="openImage(this.src)">
+    <img src="SP/IMG_8057.jpeg" loading="lazy" onclick="openImage(this.src)">
+    <img src="SP/IMG_8059.jpeg" loading="lazy" onclick="openImage(this.src)">
+    <img src="SP/IMG_8091.jpeg" loading="lazy" onclick="openImage(this.src)">
+    <img src="SP/IMG_8124.jpeg" loading="lazy" onclick="openImage(this.src)">
+    <img src="SP/IMG_8127.jpeg" loading="lazy" onclick="openImage(this.src)">
+    <img src="SP/IMG_8197.jpeg" loading="lazy" onclick="openImage(this.src)">
+    <img src="SP/IMG_8252.jpeg" loading="lazy" onclick="openImage(this.src)">
+    <img src="SP/IMG_8260.jpeg" loading="lazy" onclick="openImage(this.src)">
     </div>
     </div>
 
@@ -507,6 +765,42 @@
   <img id="popup-img">
   <span class="arrow right-arrow" onclick="nextImage()">❯</span>
 </div>
+<script>
+
+  const petalsContainer = document.querySelector('.petals');
+
+  for(let i = 0; i < 20; i++){
+
+    const petal = document.createElement('span');
+
+    petal.style.left = Math.random() * 100 + '%';
+
+    petal.style.animationDuration =
+      (10 + Math.random() * 10) + 's';
+
+    petal.style.opacity =
+      Math.random();
+
+    petal.style.transform =
+      `scale(${0.5 + Math.random()})`;
+
+    petalsContainer.appendChild(petal);
+
+  }
+
+</script>
+<script>
+
+function exploreSite(){
+
+  document.getElementById('main-content')
+    .scrollIntoView({
+      behavior:'smooth'
+    });
+
+}
+
+</script>
 </body>
 
 </html>
